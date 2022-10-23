@@ -6,24 +6,25 @@
 #    By: rotakesh <rotakesh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 15:46:14 by rotakesh          #+#    #+#              #
-#    Updated: 2022/09/27 21:42:24 by rotakesh         ###   ########.fr        #
+#    Updated: 2022/10/14 23:10:38 by rotakesh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME =			minitalk
+SRCS =			client.c server.c
+#NAME =			minitalk
 CLIENT_NAME =	client
 SERVER_NAME = 	server
 OBJ_DIR =		obj
 SRC_DIR =		src
-CLIENT_SRCS =	client.c \
+#CLIENT_SRCS =	client.c \
 #				main.c
-SERVER_SRCS =	server.c \
+#SERVER_SRCS =	server.c \
 #				main.c
-INC =			-Iinc -Ilibft
-CLIENT_OBJS =	${CLIENT_SRCS:%.c=${OBJ_DIR}/%.o}
-SERVER_OBJS =	${SERVER_SRCS:%.c=${OBJ_DIR}/%.o}
+#INC =			-Iinc -Ilibft
+#CLIENT_OBJS =	${CLIENT_SRCS:%.c=${OBJ_DIR}/%.o}
+#SERVER_OBJS =	${SERVER_SRCS:%.c=${OBJ_DIR}/%.o}
 CC =			gcc
 RM =			rm -rf
 CFLAGS =		-Wall -Werror -Wextra
@@ -31,27 +32,39 @@ CFLAGS =		-Wall -Werror -Wextra
 
 # Rules
 
-${SERVER_NAME}:	${LIBFT} ${OBJ_DIR} ${SERVER_OBJS} ${CLIENT_NAME}
-				${CC} ${SERVER_OBJS} -o ${SERVER_NAME} ${CFLAGS} ${INC} -Llibft -lft
-				@echo "Server created"
+#${SERVER_NAME}:	${OBJ_DIR} ${SERVER_OBJS} ${CLIENT_NAME}
+#				${CC} ${SERVER_OBJS} -o ${SERVER_NAME} ${CFLAGS} ${INC} -Llibft -lft
+#				@echo "Server created"
 
-${CLIENT_NAME}:	${OBJ_DIR} ${CLIENT_OBJS}
-				${CC} ${CLIENT_OBJS} -o ${CLIENT_NAME} ${CFLAGS} ${INC} -Llibft -lft
-				@echo "Client created"
+#${CLIENT_NAME}:	${OBJ_DIR} ${CLIENT_OBJS}
+#				${CC} ${CLIENT_OBJS} -o ${CLIENT_NAME} ${CFLAGS} ${INC} -Llibft -lft
+#				@echo "Client created"
 
-${OBJ_DIR}:
-				@mkdir -p ${OBJ_DIR}
+# ${OBJ_DIR}:
+#				mkdir -p ${OBJ_DIR}
 
-${OBJ_DIR}/%.o:	${SRC_DIR}/%.c
-				@${CC} ${CFLAGS} ${INC} -c $< -o $@
+#${OBJ_DIR}/%.o:	${SRC_DIR}/%.c
+#				${CC} ${CFLAGS} ${INC} -c $< -o $@
 
-# ${LIBFT}:
-#				make -C libft
+all:			libft server client
+
+server:
+				${CC} -o ${SERVER_NAME} ${SRC_DIR}/server.c -Ilibft -Llibft -lft
+
+client:
+				${CC} -o ${CLIENT_NAME} ${SRC_DIR}/client.c -Ilibft -Llibft -lft
+
+#server:			
+#				${CC} -o $@ $< -Llibft -lft
+
+#client:			
+#				${CC} -o $@ $< -Llibft -lft
+
+#%.o:			%c
+#				${CC} ${CFLAGS} $< -c ${INC} $?
 
 libft:
 				make -C libft
-
-all:			libft ${SERVER_NAME}
 
 clean:
 				@${RM} ${OBJ_DIR}
@@ -65,4 +78,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re libft
