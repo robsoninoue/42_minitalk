@@ -6,7 +6,7 @@
 /*   By: rotakesh <rotakesh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:51:42 by rotakesh          #+#    #+#             */
-/*   Updated: 2022/10/23 06:16:44 by rotakesh         ###   ########.fr       */
+/*   Updated: 2022/10/25 00:51:56 by rotakesh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_signalhandler(int sig, siginfo_t *info, void *context)
 	static int				i = 0;
 	static unsigned char	c = 0;
 
+	(void) context;
 	if (sig == SIGUSR2)
 		c = c | 1;
 	if (i < 7)
