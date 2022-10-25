@@ -6,7 +6,7 @@
 /*   By: rotakesh <rotakesh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:51:42 by rotakesh          #+#    #+#             */
-/*   Updated: 2022/10/25 01:31:29 by rotakesh         ###   ########.fr       */
+/*   Updated: 2022/10/25 04:02:30 by rotakesh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int	main(void)
 	sigaction(SIGUSR1, &sig, 0);
 	sigaction(SIGUSR2, &sig, 0);
 	while (1)
-		usleep(100);
+		pause();
 	return (0);
 }

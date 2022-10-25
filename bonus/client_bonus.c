@@ -6,7 +6,7 @@
 /*   By: rotakesh <rotakesh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:47:03 by rotakesh          #+#    #+#             */
-/*   Updated: 2022/10/25 00:34:15 by rotakesh         ###   ########.fr       */
+/*   Updated: 2022/10/25 03:56:13 by rotakesh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	ft_send(int pid, char *str)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
-			pause();
+			sleep(1);
 		}
 	}
 	i = 8;
@@ -58,7 +58,7 @@ static void	ft_send(int pid, char *str)
 		signal(SIGUSR2, ft_receive);
 		signal(SIGUSR1, ft_receive);
 		kill(pid, SIGUSR1);
-		pause();
+		sleep(1);
 	}
 }
 

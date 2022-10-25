@@ -6,7 +6,7 @@
 #    By: rotakesh <rotakesh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 15:46:14 by rotakesh          #+#    #+#              #
-#    Updated: 2022/10/25 01:32:17 by rotakesh         ###   ########.fr        #
+#    Updated: 2022/10/25 04:08:26 by rotakesh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC_DIR =			src
 BONUS_DIR =			bonus
 CC =				gcc
 RM =				rm -rf
-CFLAGS =			-Wall -Werror -Wextra
+CFLAGS =			-Wall -Werror -Wextra -o3
 LIB =				-Llibft -lft
 INC =				-Ilibft
 
