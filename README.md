@@ -39,6 +39,10 @@ Alternaly you can run the server in background to execute client in the same ter
 
 > `./server &`
 
+### Obs
+
+This project works on Linux. Not tested in others systems.
+
 ---
 
 ## Reference links
